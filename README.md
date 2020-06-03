@@ -1,24 +1,24 @@
-# README
+# <アプリ名>
+mannga_rebyu
+## サイト概要
+漫画の評価や口コミが見れる
+登録すると漫画に口コミなどをする事ができる
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### サイトテーマ
+面白い漫画をすぐに探せる
+人気が高い漫画などがわかる
 
-Things you may want to cover:
+### テーマを選んだ理由
+漫画を読むのが好きで、ネットの口コミなどを見て読んだりする作品を決める事が多いので漫画のレビューサイトがあれば便利だと思ったため
 
-* Ruby version
+### ターゲットユーザ
+男女問わず　漫画が好きな人
 
-* System dependencies
+### 主な利用シーン
+自分が気になっている漫画の口コミ評価を見れる　面白い漫画を探す時に使える
 
-* Configuration
+## 設計書
 
-* Database creation
+### 機能一覧
+<https://docs.google.com/spreadsheets/d/15sPdUn3uPSz2-iCweydf9yaStoJV7lz7PRudbNQDqDM/edit#gid=0>
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
