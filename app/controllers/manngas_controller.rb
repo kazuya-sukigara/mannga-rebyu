@@ -1,0 +1,2 @@
+class ManngasController < ApplicationController
+end
