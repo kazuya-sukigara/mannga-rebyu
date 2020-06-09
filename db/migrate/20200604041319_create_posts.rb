@@ -4,6 +4,8 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.text :title
       t.text :body
       t.float :rate
+      t.integer :user_id
+      t.integer :mannga_id
 
       t.timestamps
     end

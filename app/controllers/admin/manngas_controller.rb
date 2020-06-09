@@ -10,8 +10,7 @@ class Admin::ManngasController < ApplicationController
 
 
 	def show
-		@mmannga = Mannga.find(params[:id])
-		@genre = @mannga.genre
+		@mannga = Mannga.find(params[:id])
 	end
 
 	def edit

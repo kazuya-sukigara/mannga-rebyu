@@ -1,0 +1,9 @@
+<% @manngas.each do |mannga| %>
+
+
+					<tr>
+						<td><%= mannga.id %></td>
+						<td><%= link_to mannga.name, mannga_path(mannga) %></td>
+						<td><%= mannga.author%></td>
+					</tr>
+				<% end %>

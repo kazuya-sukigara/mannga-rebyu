@@ -1,0 +1,50 @@
+<div class="container">
+	<div class="row">
+		<h3 class="title">マイページ</h3>
+		<ul class="info">
+			<strong>登録情報</strong>
+			<li class="info-text"><%= link_to "編集する", edit_user_path, class: "btn btn-primary" %></li>
+			<li class="info-text"><%= link_to "パスワードを変更する", edit_user_registration_path, class: "btn btn-primary" %></li>
+		</ul>
+	</div>
+
+	<%= render 'relationships/follow_button', user: @user, relotionship: @relationship %>
+	<% user ||= current_user %>
+<div class="stats">
+  <a href="<%= following_user_path(user) %>">
+    <strong id="following" class="stat">
+      <%= user.followings.count %>
+    </strong>
+    following
+  </a>
+  <a href="<%= followers_user_path(user) %>">
+    <strong id="followers" class="stat">
+      <%= user.followers.count %>
+    </strong>
+    followers
+  </a>
+</div>
+
+	<div class="row">
+		<div class="user_info col-xs-6">
+			<table class="table">
+				<tr>
+					<th>名前</th>
+					<td><%= @user.last_name%>　<%= @user.first_name %></td>
+				</tr>
+				<tr>
+					<th>自己紹介</th>
+					<td><%= @user.description %></td>
+				</tr>
+				<tr>
+					<th>ニックネーム</th>
+					<td><%= @user.nick_name %></td>
+				</tr>
+				<tr>
+					<th>メールアドレス</th>
+					<td><%= @user.email %></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

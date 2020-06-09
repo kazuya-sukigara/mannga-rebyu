@@ -1,7 +1,11 @@
 <% @manngas.each do |mannga| %>
 					<tr>
 						<td><%= mannga.id %></td>
-						<td><%= mannga.name %></td>
+						<td><%= link_to mannga.name, admin_mannga_path(mannga) %></td>
 						<td><%= mannga.author%></td>
 					</tr>
 				<% end %>
+
+				<%= link_to "漫画登録",new_admin_mannga_path, class: "btn-lg btn-primary" %>
+      </div>
+

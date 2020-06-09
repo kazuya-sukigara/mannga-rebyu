@@ -1,0 +1,40 @@
+<div class="row">
+  <h3 class="title">漫画編集</h3>
+</div>
+
+<div class="row">
+  <div class="item-form">
+    <%= form_for([:admin, @mannga]) do |f| %>
+
+      <div class="col-xs-5">
+        <div class="field">
+          <%= attachment_image_tag(@mannga, :image,id: "prev", size: '400x300', fallback: "no_image.jpg") %>
+          <%= f.attachment_field :image, id: :mannga_image %>
+        </div>
+      </div>
+
+      <div class="col-xs-6">
+        <div class="field">
+          <%= f.label :name, "漫画名", style: "width: 110px;" %>
+          <%= f.text_field :name, class: "form-control", style: "width: 300px;" %>
+        </div>
+
+        <div class="field label-top">
+          <%= f.label :description, "漫画説明", style: "width: 110px;" %>
+          <%= f.text_area :description, class: "form-control", rows: 7, style: "width: 300px;" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :genre_id, "ジャンル", style: "width: 110px;" %>
+          <%= f.collection_select :genre_id, Genre.where(status: "true"), :id, :name, include_blank: "選択してください" %>
+        </div>
+
+
+        <div class="actions text-right">
+          <%= f.submit "変更を保存", class: "btn-lg btn-primary" %>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+</div>
