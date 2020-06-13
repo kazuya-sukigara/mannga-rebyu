@@ -1,3 +1,4 @@
 class Genre < ApplicationRecord
-	 has_many :genres
+	 has_many :manngas
+	 has_ancestry
 end

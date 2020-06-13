@@ -6,5 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Admin.create!(email:"admin@test",password:"aaaaaa",password_confirmation:"aaaaaa")
 
+
+kids = Genre.create(:name=>"少年漫画")
+kids_jannpu = kids.children.create(:name=>"週間少年ジャンプ")
+kids_magazin = kids.children.create(:name=>"週刊少年マガジン")
+
+seinenn = Genre.create(:name=>"青年漫画")
+seinenn_yanngu = seinenn.children.create(:name=>"ヤングマガジン")
+seinenn_magazin = seinenn.children.create(:name=>"ヤングジャンプ")

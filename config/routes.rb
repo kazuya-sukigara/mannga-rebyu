@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/top'
+  get 'home/about'
   get 'contacts/new'
   get 'contacts/create'
   root 'manngas#index'
@@ -21,8 +23,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
-    resources :manngas, only: [:index, :new, :create, :show, :edit, :update]
+    resources :manngas, only: [:index, :new, :create, :show, :edit, :update] do
+       #Ajaxで動くアクションのルートを作成
+    collection do
+      get 'genre_children', defaults: { format: 'json' }
     resources :genres, only: [:index, :create, :edit, :update]
-
+    end
+    end
   end
 end

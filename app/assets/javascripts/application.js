@@ -15,4 +15,6 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery.raty
+//= require jquery.nav.js
 //= require_tree .
+

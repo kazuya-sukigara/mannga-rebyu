@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_08_080550) do
+ActiveRecord::Schema.define(version: 2020_06_09_132658) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2020_06_08_080550) do
     t.boolean "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_genres_on_ancestry"
   end
 
   create_table "manngas", force: :cascade do |t|
