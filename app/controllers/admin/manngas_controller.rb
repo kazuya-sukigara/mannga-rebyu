@@ -36,7 +36,7 @@ class Admin::ManngasController < ApplicationController
 		redirect_to admin_mannga_path(@mannga)
 	end
 
-	# 以下全て、formatはjsonのみ
+
     # 親カテゴリーが選択された後に動くアクション
     def genre_children
         #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
@@ -51,7 +51,7 @@ class Admin::ManngasController < ApplicationController
 	def set_genre_parent
 	  @genre_parent_array = [{ name: "---", id: "---"}]
 	  Genre.where(ancestry: nil).each do |parent|
-        @genre_parent_array << { name: parent.name, id: parent.id }
+      @genre_parent_array << { name: parent.name, id: parent.id }
       end
 	end
 end
