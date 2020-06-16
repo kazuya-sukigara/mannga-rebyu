@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   get 'contacts/create'
   root 'manngas#index'
   devise_for :admins
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :users, only: [:show, :edit, :update] do
+  get :search, on: :collection
   member do
   get :following, :followers
   end
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :manngas, only: [:index, :show] do
+  get :search, on: :collection
   resources :posts, only: [:new,:index,:create,:destroy]
   resource  :favorites, only: [:create, :destroy]
   end

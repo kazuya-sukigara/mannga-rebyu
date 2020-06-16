@@ -1,0 +1,10 @@
+<div class="sidebar">
+  <div class="genre-title">
+    <h4>ジャンル検索</h4>
+  </div>
+ <% @parents.each do |parent| %>
+    <%= parent.name %>
+    <% parent.children.each do |child| %>
+<%= child.name %>
+<% end %>
+<% end %>

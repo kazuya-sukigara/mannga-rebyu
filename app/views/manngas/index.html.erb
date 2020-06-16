@@ -1,3 +1,16 @@
+<h2>ジャンル</h2>
+<div class="row">
+	<div class="col-xs-3">
+		<% @genres.each do |genre| %>
+          <%= link_to genre_show_path(genre) do %>
+           <%= genre.name %>
+          <% end%>
+        <% end %>
+    </div>
+
+
+<div class="col-xs-9">
+<h2>漫画</h2>
 <% @manngas.each do |mannga| %>
 
 
@@ -7,3 +20,5 @@
 						<td><%= mannga.author%></td>
 					</tr>
 				<% end %>
+			</div>
+		</div>

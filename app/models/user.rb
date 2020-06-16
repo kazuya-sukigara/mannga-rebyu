@@ -2,7 +2,16 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+          :recoverable, :rememberable, :validatable,
+          :omniauthable, omniauth_providers: %i[google_oauth2]
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+    end
+  end
+
   has_many :posts
   has_many :favorites, dependent: :destroy
   has_many :relationships
@@ -23,5 +32,19 @@ class User < ApplicationRecord
 
   def following?(other_user)
     self.followings.include?(other_user)
+  end
+
+  def User.search(search, user_or_mannga, how_search)
+    if how_search == "1"
+       User.where(['name LIKE ?', "%#{search}%"])
+       elsif how_search == "2"
+       User.where(['name LIKE ?', "%#{search}"])
+       elsif how_search == "3"
+       User.where(['name LIKE ?', "#{search}%"])
+       elsif how_search == "4"
+       User.where(['name LIKE ?', "#{search}"])
+    else
+       User.all
+    end
   end
 end

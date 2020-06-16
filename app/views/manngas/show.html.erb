@@ -19,6 +19,7 @@
     		<p class="info-head">漫画説明</p>
     		<p class="item-info-text"><%= @mannga.description %></p>
     	</div>
+      <%= @mannga.genre.name %>
 
 
       <% if @mannga.favorited_by?(current_user) %>

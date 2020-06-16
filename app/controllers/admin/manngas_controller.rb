@@ -1,5 +1,5 @@
 class Admin::ManngasController < ApplicationController
-	before_action :set_genre_parent, only: [:new, :create]
+	before_action :set_genre_parent, only: [:new, :create, :edit]
 
 	def new
 		@mannga = Mannga.new
@@ -20,7 +20,6 @@ class Admin::ManngasController < ApplicationController
 
 	def create
 		@mannga = Mannga.new(mannga_params)
-		binding.pry
       if @mannga.save
     	 redirect_to admin_manngas_path
       else
