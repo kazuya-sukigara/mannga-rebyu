@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_16_112530) do
+ActiveRecord::Schema.define(version: 2020_06_17_061135) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -47,6 +47,13 @@ ActiveRecord::Schema.define(version: 2020_06_16_112530) do
     t.index ["ancestry"], name: "index_genres_on_ancestry"
   end
 
+  create_table "hashtags", force: :cascade do |t|
+    t.string "hashname"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hashname"], name: "index_hashtags_on_hashname", unique: true
+  end
+
   create_table "manngas", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -55,6 +62,13 @@ ActiveRecord::Schema.define(version: 2020_06_16_112530) do
     t.integer "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "micropost_hashtags", force: :cascade do |t|
+    t.integer "mannga_id"
+    t.integer "hashtag_id"
+    t.index ["hashtag_id"], name: "index_micropost_hashtags_on_hashtag_id"
+    t.index ["mannga_id"], name: "index_micropost_hashtags_on_mannga_id"
   end
 
   create_table "posts", force: :cascade do |t|

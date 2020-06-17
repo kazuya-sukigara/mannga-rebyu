@@ -1,24 +1,35 @@
-<h2>ジャンル</h2>
-<div class="row">
-	<div class="col-xs-3">
-		<% @genres.each do |genre| %>
-          <%= link_to genre_show_path(genre) do %>
-           <%= genre.name %>
-          <% end%>
-        <% end %>
-    </div>
-
-
-<div class="col-xs-9">
-<h2>漫画</h2>
-<% @manngas.each do |mannga| %>
-
-
-					<tr>
-						<td><%= mannga.id %></td>
-						<td><%= link_to mannga.name, mannga_path(mannga) %></td>
-						<td><%= mannga.author%></td>
-					</tr>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+			<h2 style="border-bottom: 1px solid silver; margin-bottom: 10px;">Genre</h2>
+			<div class="row">
+				<% @parents.each do |parent| %>
+					<div class="row" style="margin-left: 10px; padding-bottom: 5px;">
+						<%= link_to genre_show_path(parent.id) do %>
+						<h3><%= parent.name %> >></h3>
+						<% end %>
+					</div>
+						<% parent.children.each do |child| %>
+							<div class="row" style="margin-left: 10px; padding-bottom: 5px; padding-left: 50px;">
+								<%= link_to genre_show_path(child.id) do %>
+								<%= child.name %>
+								<% end %>
+							</div>
+						<% end %>
 				<% end %>
 			</div>
 		</div>
+
+		<div class="col-xs-9">
+		<h2>漫画</h2>
+		<% @manngas.each do |mannga| %>
+
+
+							<tr>
+								<td><%= mannga.id %></td>
+								<td><%= link_to mannga.name, mannga_path(mannga) %></td>
+								<td><%= mannga.author%></td>
+							</tr>
+						<% end %>
+					</div>
+				</div>

@@ -1,25 +1,33 @@
 class Mannga < ApplicationRecord
 	attachment :image
     belongs_to :genre
+    has_many :hashtags
 	has_many :posts
 	has_many :favorites, dependent: :destroy
     def favorited_by?(user)
         favorites.where(user_id: user.id).exists?
     end
-     def Mannga.search(search, user_or_mannga, how_search)
 
-    if how_search == "1"
-       Mannga.where(['title LIKE ?', "%#{search}%"])
-       elsif how_search == "2"
-       Mannga.where(['title LIKE ?', "%#{search}"])
-       elsif how_search == "3"
-       Mannga.where(['title LIKE ?', "#{search}%"])
-       elsif how_search == "4"
-       Mannga.where(['title LIKE ?', "#{search}"])
-    else
-       Mannga.all
+    #DBへのコミット直前に実施する
+  after_create do
+    mannga = Mannga.find_by(id: self.id)
+    hashtags  = self.description.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
+    hashtags.uniq.map do |hashtag|
+      #ハッシュタグは先頭の'#'を外した上で保存
+      tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#'))
+      MicropostHashtags.create(mannga_id: mannga.id, hashtag_id: tag.id)
+    end
+  end
 
+  before_update do
+    mannga = Mannga.find_by(id: self.id)
+    mannga.hashtags.clear
+    hashtags = self.description.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
+    hashtags.uniq.map do |hashtag|
+      tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#'))
+      MicropostHashtags.create(mannga_id: self.id, hashtag_id: tag.id)
     end
-    end
+  end
+
 
 end

@@ -1,5 +1,5 @@
 class Admin::ManngasController < ApplicationController
-	before_action :set_genre_parent, only: [:new, :create, :edit]
+	before_action :set_genre_parent, only: [:new, :create, :edit, :update]
 
 	def new
 		@mannga = Mannga.new
@@ -34,6 +34,16 @@ class Admin::ManngasController < ApplicationController
 		@mannga.update(mannga_params)
 		redirect_to admin_mannga_path(@mannga)
 	end
+
+	def hashtag
+	    @user = current_user
+	    @tag = Hashtag.find_by(hashname: params[:name])
+	    @manngas = []
+	    MicropostHashtags.where(hashtag_id: @tag.id).includes(:mannga).each do |micropost_hashtag|
+	    	@manngas << micropost_hashtag.mannga
+	    end
+
+    end
 
 
     # 親カテゴリーが選択された後に動くアクション

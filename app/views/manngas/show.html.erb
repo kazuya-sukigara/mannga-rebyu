@@ -17,7 +17,7 @@
     	</div>
     	<div class="info-content">
     		<p class="info-head">漫画説明</p>
-    		<p class="item-info-text"><%= @mannga.description %></p>
+    		<p class="item-info-text"><%= render_with_hashtags(@mannga.description) %></p>
     	</div>
       <%= @mannga.genre.name %>
 

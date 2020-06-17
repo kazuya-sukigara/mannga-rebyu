@@ -2,8 +2,8 @@
 
 
 
-<% if @user_or_mannga == "1"%>
-    <h1>User</h1>
+
+    <h1>検索結果</h1>
     <table>
         <% @users.each do |user| %>
         <thead>
@@ -15,17 +15,14 @@
         <% end %>
     </table>
 
-<% elsif @user_or_mannga == "2" %>
-    <h2>Post</h2>
+
     <table>
-    <% @manngas.each do |book| %>
+    <% @manngas.each do |mannga| %>
         <thead>
             <tr>
                 <th></th>
-                <th><%= ,mannga.name %></th>
+                <th><%= mannga.name %></th>
             </tr>
         </thead>
     <% end %>
     </table>
-<% else %>
-<% end %>

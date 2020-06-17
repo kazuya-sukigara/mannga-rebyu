@@ -1,13 +1,22 @@
 class ManngasController < ApplicationController
 	def index
   	  @manngas = Mannga.all #一覧表示するためにManngaモデルの情報を全てくださいのall
-  	  @genres = Genre.all.order("id ASC")
+  	  @parents = Genre.where(ancestry: nil)
     end
 
     def show
   	  @mannga = Mannga.find(params[:id])
-      @genres = Genre.find(params[:id])
+
       @posts = @mannga.posts #その漫画に紐づくレビュー
 
-  end
+    end
+    def hashtag
+	    @user = current_user
+	    @tag = Hashtag.find_by(hashname: params[:name])
+	    @manngas = []
+	    MicropostHashtags.where(hashtag_id: @tag.id).includes(:mannga).each do |micropost_hashtag|
+	    	@manngas << micropost_hashtag.mannga
+	    end
+
+    end
 end
