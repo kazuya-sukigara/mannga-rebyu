@@ -6,7 +6,6 @@ class ManngasController < ApplicationController
 
     def show
   	  @mannga = Mannga.find(params[:id])
-
       @posts = @mannga.posts #その漫画に紐づくレビュー
 
     end
@@ -17,6 +16,9 @@ class ManngasController < ApplicationController
 	    MicropostHashtags.where(hashtag_id: @tag.id).includes(:mannga).each do |micropost_hashtag|
 	    	@manngas << micropost_hashtag.mannga
 	    end
+    end
 
+    def bookmarks
+    @manngas = current_user.bookmark_boards.includes(:user).recent
     end
 end

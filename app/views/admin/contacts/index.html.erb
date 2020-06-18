@@ -1,0 +1,6 @@
+<% @contacts.each do |contact| %>
+<%= link_to admin_contact_path(contact) do %>
+		<%= contact.email %>
+
+<% end %>
+<% end %>

@@ -1,0 +1,12 @@
+
+
+<% if current_user  %>
+  <div style='display: inline; float: right;'>
+    <%= link_to icon('fas', 'pen'), edit_mannga_path(mannga), id: :"button-edit-#{mannga.id}" %>
+    <%= link_to icon('fas', 'trash-alt'), mannga_path(mannga), id: :"button-delete-#{mannga.id}",method: :delete, data: { confirm: '削除してよろしいですか？' } %>
+  </div>
+<% else %>
+  <div style='display: inline; float: right;'>
+     <%= render 'boards/bookmark_area', mannga: mannga %>
+  </div>
+<% end %>

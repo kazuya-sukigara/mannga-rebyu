@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get 'bookmarks/create'
+  get 'bookmarks/destroy'
   get 'home/top'
   get 'home/about'
   get 'contacts/new'
@@ -16,6 +19,8 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :manngas, only: [:index, :show] do
+  resource :bookmarks, only: %i[create destroy]
+  get :bookmarks, on: :collection
   resources :posts, only: [:new,:index,:create,:destroy, :edit, :update]
   resource  :favorites, only: [:create, :destroy]
   end
@@ -25,6 +30,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
+    resources :contacts, only: [:index, :show]
     resources :manngas, only: [:index, :new, :create, :show, :edit, :update] do
        #Ajaxで動くアクションのルートを作成
     collection do

@@ -12,6 +12,9 @@ class User < ApplicationRecord
     end
   end
 
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_manngas, through: :bookmarks, source: :mannga
+
   has_many :posts
   has_many :favorites, dependent: :destroy
   has_many :relationships

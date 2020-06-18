@@ -3,9 +3,15 @@ class Mannga < ApplicationRecord
     belongs_to :genre
     has_many :hashtags
 	has_many :posts
+  has_many :bookmarks, dependent: :destroy
 	has_many :favorites, dependent: :destroy
     def favorited_by?(user)
         favorites.where(user_id: user.id).exists?
+    end
+
+    # boardのお気に入り判定 → vies側で呼び出し
+    def bookmark_by?(user)
+      bookmarks.where(user_id: user.id).exists?
     end
 
     #DBへのコミット直前に実施する
