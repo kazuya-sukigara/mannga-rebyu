@@ -8,6 +8,10 @@ class PostsController < ApplicationController
         @posts = Post.all
     end
 
+    def edit
+    	@post = Post.find(params[:id])
+    end
+
 	def create
 		mannga = Mannga.find(params[:mannga_id])
 	    post = current_user.posts.new(post_params)
@@ -17,10 +21,16 @@ class PostsController < ApplicationController
 	end
 
 	def destroy
-	    mannga = Mannga.find(params[:mannga_id])
 	    post = Post.find(params[:id])
 	    post.destroy
 	    redirect_to request.referer
+	end
+
+	def update
+		post = Post.find(params[:id])
+	    post.update
+	    redirect_to request.referer
+
 	end
 
 	private
