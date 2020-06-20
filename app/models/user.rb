@@ -12,11 +12,10 @@ class User < ApplicationRecord
     end
   end
 
-  has_many :bookmarks, dependent: :destroy
-  has_many :bookmark_manngas, through: :bookmarks, source: :mannga
 
   has_many :posts
   has_many :favorites, dependent: :destroy
+  has_many :favorite_manngas, through: :favorites, source: :mannga
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'

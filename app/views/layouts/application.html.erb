@@ -42,7 +42,7 @@
             <li><%= link_to ' マイページ', user_path(current_user)%></li>
             <li><%= link_to ' 漫画一覧', manngas_path%></li>
             <li><%= link_to ' 問合せ', contacts_new_path%></li>
-            <li><%= link_to ' いいね一覧', contacts_new_path%></li>
+            <li><%= link_to ' いいね一覧', favorite_users_path(current_user)%></li>
             <li><%= link_to ' ログアウト', destroy_user_session_path, method: :delete %></li>
 
 

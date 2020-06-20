@@ -45,3 +45,8 @@
 <%= link_to "編集する", edit_user_path, class: "btn btn-primary" %>
 <%= link_to "パスワードを変更する", edit_user_registration_path, class: "btn btn-primary" %>
 </div>
+
+<% @myposts.each do |post| %>
+<%= post.mannga.name %>
+<%= post.title %>
+<% end %>

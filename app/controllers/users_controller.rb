@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 	before_action :correct_user, only: [:edit]
 	def show
 		@user = User.find(params[:id])
+		@posts = @user.posts
+		@myposts = current_user.posts
 	end
 
 	def edit
@@ -27,6 +29,11 @@ class UsersController < ApplicationController
     @users = @user.followers
     render 'show_follower'
     end
+
+    def favorite
+    @favorite_manngas = current_user.favorite_manngas
+    end
+
     private
 	def user_params
 		params.require(:user).permit(:last_name, :first_name, :nick_name, :description, :email, :password, :password_confirmation)

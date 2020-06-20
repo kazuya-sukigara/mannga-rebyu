@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   devise_for :admins
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :users, only: [:show, :edit, :update] do
+    collection do
+    get :favorite
+    end
   member do
   get :following, :followers
   end
