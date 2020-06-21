@@ -11,16 +11,12 @@
 
   <body style="padding-top: 70px;">
 
-    <div class="sitename">
+    <div style="text-align: center;">
         <div class="container">
-          <a href="#">漫画レビュ-</a>
+          <h3>manngarebyu</h3>
         </div>
     </div>
-    <div style="margin-top: 70px; text-align: center;"><%= form_tag(searchs_search_path, :method => 'get') do %>
-         <%= text_field_tag :search %>
-         <%= submit_tag 'Search' %>
-         <% end %>
-      </div>
+   
 
     <div class="navbar navbar-default" role="navigation">
       <div class="container">
@@ -57,6 +53,11 @@
         </div>
       </div>
     </div>
+     <div style="margin-top: 70px; text-align: center;　"><%= form_tag(searchs_search_path, :method => 'get') do %>
+         <%= text_field_tag :search %>
+         <%= submit_tag 'Search' %>
+         <% end %>
+      </div>
 
 
 
