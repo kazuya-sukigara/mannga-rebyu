@@ -7,10 +7,12 @@ class ManngasController < ApplicationController
     def show
   	  @mannga = Mannga.find(params[:id])
       @posts = @mannga.posts #その漫画に紐づくレビュー
+      @parents = Genre.where(ancestry: nil)
 
     end
     def hashtag
 	    @user = current_user
+      @parents = Genre.where(ancestry: nil)
 	    @tag = Hashtag.find_by(hashname: params[:name])
 	    @manngas = []
 	    MicropostHashtags.where(hashtag_id: @tag.id).includes(:mannga).each do |micropost_hashtag|

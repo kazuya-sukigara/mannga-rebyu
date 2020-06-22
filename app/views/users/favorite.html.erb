@@ -1,3 +1,31 @@
-<% @favorite_manngas.each do |mannga| %>
-<%= mannga.name %>
-<% end %>
+<div class="container">
+    <div class="row">
+    	<div class="font_z">likes <i class="glyphicon glyphicon-heart"style="color: red;"></i></div>
+
+    	<table class="table">
+			<thead>
+				<tr>
+					<th><h3>mannga_title</h3></th>
+					<th><h3>mannga_author</h3></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th colspan="3"></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% @favorite_manngas.each do |mannga| %>
+				<tr>
+
+					<td><%= mannga.name %></td>
+					<td><%= mannga.author%></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>

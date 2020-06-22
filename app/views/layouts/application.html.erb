@@ -6,20 +6,25 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
   </head>
 
 
-  <body style="padding-top: 70px;">
-
-    <div style="text-align: center;">
-        <div class="container">
-          <h3>manngarebyu</h3>
+  <body>
+    <div style="text-align: left;">
+      <div class="nav_iamge"style="background-size: cover; background-position: center;">
+        <div class="container"style="height: 200px;">
+          <div class="font">
+          manngarebyu
+          </div>
         </div>
+      </div>
     </div>
+
    
 
     <div class="navbar navbar-default" role="navigation">
-      <div class="container">
+
        <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -30,45 +35,52 @@
       </div>
 
 
-      <div class="navbar-collapse collapse">
+      <div class="navbar-collapse collapse"style="background-color: #f5e41770;">
         <ul class="nav navbar-nav">
 
             <!--if文でサインインとアウト時の表示を変更-->
             <% if user_signed_in? %>
-            <li><%= link_to ' マイページ', user_path(current_user)%></li>
-            <li><%= link_to ' 漫画一覧', manngas_path%></li>
-            <li><%= link_to ' 問合せ', contacts_new_path%></li>
-            <li><%= link_to ' いいね一覧', favorite_users_path(current_user)%></li>
-            <li><%= link_to ' ログアウト', destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to ' home', user_path(current_user)%></li>
+            <li><%= link_to ' mannga', manngas_path%></li>
+            <li><%= link_to ' contact', contacts_new_path%></li>
+            <li><%= link_to ' likes', favorite_users_path(current_user)%></li>
+            <li><%= link_to ' logout', destroy_user_session_path, method: :delete %></li>
 
 
             <% else %>
-            <li><%= link_to ' TOPページ', admin_genres_path, class: 'glyphicon glyphicon-home home' %></li>
-            <li><%= link_to ' 概要',admin_genres_path , class: 'glyphicon glyphicon-link about' %></li>
-            <li><%= link_to ' 新規登録', new_user_registration_path, class: 'glyphicon glyphicon-edit sign_up' %></li>
-            <li><%= link_to ' ログイン', new_user_session_path, class: 'glyphicon glyphicon-log-in sign_in' %></li>
-            <li><%= link_to ' 問合せ', contacts_new_path%></li>
+            <li><%= link_to ' TOP', admin_genres_path, class: 'glyphicon glyphicon-home home' %></li>
+            <li><%= link_to ' ABOUT',admin_genres_path , class: 'glyphicon glyphicon-link about' %></li>
+            <li><%= link_to ' SIGN_UP', new_user_registration_path, class: 'glyphicon glyphicon-edit sign_up' %></li>
+            <li><%= link_to ' LOG_IN', new_user_session_path, class: 'glyphicon glyphicon-log-in sign_in' %></li>
+            <li><%= link_to ' CONTACT', contacts_new_path%></li>
             <% end %>
           </ul>
         </div>
       </div>
     </div>
-     <div style="margin-top: 70px; text-align: center;　"><%= form_tag(searchs_search_path, :method => 'get') do %>
+     <div style="margin-top: 50px; margin-bottom: 30px; text-align: center;　"><%= form_tag(searchs_search_path, :method => 'get') do %>
          <%= text_field_tag :search %>
+        <span class="font_s">
+          <span class="h3">
          <%= submit_tag 'Search' %>
+       </span>
+
+     </span>
          <% end %>
       </div>
 
 
-
     <%= yield %>
 
-    <!--ヘッダーの記述-->
-    <div class="container">
-      <!--デバイスでnotice設定されているので呼び出してるだけ-->
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+   
 
+     <footer>
+      <div class ="footer_s">
+      <div class="text-center"style="background-color: #f5e41770; height: 100px; width: 100%;">
+        <h3>top</h3>
+        <h3><small>&copy;</small> manngarebyu Co. Ltd.</h3>
+      </div>
     </div>
+    </footer>
   </body>
 </html>

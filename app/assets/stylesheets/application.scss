@@ -17,11 +17,51 @@
    @import "bootstrap";
 
 
+h3{
+font-family: 'Amatic SC', cursive;
+}
+
+h9{
+font-family: 'Amatic SC', cursive;
+font-size:50px;
+}
+
+
+.font_s{
+font-family: 'Amatic SC', cursive;
+}
+
+
+.font{
+font-size:100px;
+font-family: 'Amatic SC', cursive;
+}
+
+.nav_iamge{
+ background-image: image-url("mannga.jpg");
+ width:1300px;
+
+ }
+
+ .navbar navbar-default{
+ background-color: #f5e41770
+ }
+
+ .font_z{
+ font-size:50px;
+ font-family: 'Amatic SC', cursive;
+ }
+
+
    i{
 font-size: 1.3em;
 color: inherit;
+
 }
- 
+.footer{
+height: 50px;
+}
+
 .navbar .navbar-inner {
 padding: 0;
 }
@@ -35,6 +75,10 @@ width: 100%;
 .navbar .nav li {
 display: table-cell;
 float: none;
+font-family: 'Amatic SC', cursive;
+font-size:50px;
+
+
 }
  
 .navbar .nav li a {

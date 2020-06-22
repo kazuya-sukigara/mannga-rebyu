@@ -1,7 +1,7 @@
 class Mannga < ApplicationRecord
 	attachment :image
-    belongs_to :genre
-    has_many :hashtags
+  belongs_to :genre
+  has_many :hashtags
 	has_many :posts
   has_many :bookmarks, dependent: :destroy
 	has_many :favorites, dependent: :destroy

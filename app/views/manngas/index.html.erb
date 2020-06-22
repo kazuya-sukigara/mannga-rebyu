@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-3">
-			<h2 style="border-bottom: 1px solid silver; margin-bottom: 10px;">Genre</h2>
+			<h9 style="border-bottom: 1px solid silver; margin-bottom: 10px;">Genre</h9>
 			<div class="row">
 				<% @parents.each do |parent| %>
 					<div class="row" style="margin-left: 10px; padding-bottom: 5px;">
@@ -19,18 +19,32 @@
 				<% end %>
 			</div>
 		</div>
-
 		<div class="col-xs-9">
-		<h2>漫画</h2>
-		<% @manngas.each do |mannga| %>
+		 	<div class="row">
+		 		<h3 style="text-center">mannga_all</h3>
+			    <% @manngas.each do |mannga| %>
+			    	<div class="col-xs-3">
+			    		<div class="row">
+			    			<div class="col-xs-12">
+			                  <%= attachment_image_tag(@mannga, :image_url,id: "preview", size: '100x100', fallback: "no_image.jpg") %>
+			                </div>
+			            </div>
+
+			    	    <div class="row">
+			    		    <div class="col-xs-12">
+			    		    	<%= link_to mannga.name, mannga_path(mannga) %>
+			    		    </div>
+			    		</div>
+			    	    <div class="row">
+			    			<div class="col-xs-12">
+			    				<%= mannga.author%>
+			    			</div>
+			    		</div>
+			    	</div>
+			    <% end %>
+		    </div>
+		</div>
+	</div>
+</div>
 
 
-							<tr>
-								<td><%= mannga.id %></td>
-								<td><%= link_to mannga.name, mannga_path(mannga) %></td>
-								<td><%= mannga.author%></td>
-							</tr>
-						<% end %>
-					</div>
-				</div>
-				

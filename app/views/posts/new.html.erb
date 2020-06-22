@@ -1,7 +1,18 @@
-<!-- 口コミ入力フォーム -->
-<%= form_for ([@mannga,@post]) do |f| %>
 
-  <!--商品コードの送信-->
+<% if @post.errors.any? %>
+  <h3><%= @post.errors.count %>error occurrence</h3><!--エラーメッセ-->
+  <ul>
+    <% @post.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<div class="container">
+  <div class="row">
+
+
+<!-- 口コミ入力フォーム -->
+<%= form_for([@mannga,@post]) do |f| %>
 
 
 
@@ -43,11 +54,15 @@
     </div>
   </div>
 
+
+
   <!-- 確認ボタン -->
   <div class="form-group row justify-content-end">
     <div class="col-md-9">
-      <%= f.submit '投稿する', class:"btn btn-success" %>
+      <%= f.submit '投稿する', class:" btn btn-warning" %>
     </div>
   </div>
 
 <% end %>
+</div>
+</div>

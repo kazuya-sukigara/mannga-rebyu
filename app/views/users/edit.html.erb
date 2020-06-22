@@ -1,10 +1,11 @@
 <div class="container">
   <div class="row">
+    <h9>edit_user</h9>
     <%= form_for @user do |f| %>
       <div class="form-horizontal">
         <div class="form-group">
           <div class="col-xs-3">
-            <%= f.label :last_name, "名前" , class: "control-label" %>
+            <%= f.label :last_name, "name" , class: "control-label" %>
           </div>
             <div class="col-xs-3">(姓)<%= f.text_field :last_name,class: "name form-control" %></div>
             <div class="col-xs-3">(名)<%= f.text_field :first_name, class: "form-control" %></div>
@@ -38,7 +39,7 @@
 
         <div class="actions">
           <div class="col-xs-3">
-            <%= f.submit "編集内容を保存する", class: "btn btn-primary col-xs-offset-3" %>
+            <%= f.submit "編集内容を保存する", class: " btn btn-warning col-xs-offset-3" %>
         </div>
       </div>
       </div>

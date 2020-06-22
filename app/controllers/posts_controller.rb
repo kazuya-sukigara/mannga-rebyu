@@ -4,20 +4,21 @@ class PostsController < ApplicationController
 		@mannga = Mannga.find(params[:mannga_id])
     end
 
-    def index
-        @posts = Post.all
-    end
-
     def edit
     	@post = Post.find(params[:id])
     end
 
 	def create
-		mannga = Mannga.find(params[:mannga_id])
-	    post = current_user.posts.new(post_params)
-	    post.mannga_id = mannga.id
-	    post.save
-	    redirect_to mannga_path(mannga)
+		@mannga = Mannga.find(params[:mannga_id])
+	    @post = current_user.posts.new(post_params)
+	    @post.mannga_id = @mannga.id
+	   if @post.save
+	    redirect_to mannga_path(@mannga)
+	   else
+
+	   	flash[:error_messages] = @post.errors.full_messages
+        render 'new'
+       end
 	end
 
 	def destroy

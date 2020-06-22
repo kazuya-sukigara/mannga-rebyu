@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   resources :manngas, only: [:index, :show] do
   resource :bookmarks, only: %i[create destroy]
   get :bookmarks, on: :collection
-  resources :posts, only: [:new,:index,:create,:destroy, :edit, :update]
+  resources :posts, only: [:new,:create,:destroy, :edit, :update]
   resource  :favorites, only: [:create, :destroy]
   end
 
