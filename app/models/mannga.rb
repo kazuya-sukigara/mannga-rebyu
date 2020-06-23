@@ -14,6 +14,7 @@ class Mannga < ApplicationRecord
       bookmarks.where(user_id: user.id).exists?
     end
 
+    
     #DBへのコミット直前に実施する
   after_create do
     mannga = Mannga.find_by(id: self.id)

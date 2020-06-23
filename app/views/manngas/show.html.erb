@@ -34,7 +34,21 @@
         <div class="col-xs-6">
           <div class="manga">
             <h3>name</h3>
-            <%= @mannga.name %>
+            <%= @mannga.name %><br>
+
+            <div id="star-rate-<%= @mannga.id %>"></div>
+                <script>
+                $('#star-rate-<%= @mannga.id %>').raty({
+                  size: 36,
+                  starOff:  '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  half: true,
+                  readOnly: true,
+                  score: <%= @mannga.posts.average(:rate).to_f.round(1) %>
+                  });
+                </script>
+
             <h3>description</h3>
             <%= render_with_hashtags(@mannga.description) %>
             <h3>genre</h3>
