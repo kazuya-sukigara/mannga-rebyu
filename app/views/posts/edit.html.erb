@@ -4,11 +4,6 @@
   <div class="row">
 　　<%= form_for @post,url: mannga_post_path do |f| %>
 
-
-
-
-
-
   <!-- タイトル -->
   <div class="form-group row">
     <%= f.label :title, 'タイトル ', class:'col-md-3 col-form-label' %>
@@ -49,7 +44,7 @@
   <!-- 確認ボタン -->
   <div class="form-group row justify-content-end">
     <div class="col-md-9">
-      <%= f.submit '投稿する', class:"btn btn-warning" %>
+      <%= f.submit '編集する', class:"btn btn-warning" %>
     </div>
   </div>
 

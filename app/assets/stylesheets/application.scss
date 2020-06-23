@@ -17,6 +17,40 @@
    @import "bootstrap";
 
 
+
+
+.book_image{
+background-image: image-url("book.jpg");
+height: 800px;
+text-align:center;
+}
+
+.welcom-text {
+  height: 200px;
+  padding-top: 200px;
+  color:#FFFF99
+}
+
+h8{
+font-family: 'Amatic SC', cursive;
+font-size:200px;
+}
+
+.books_image{
+background-image: image-url("books.jpg");
+margin-top: 20px;
+height: 400px;
+width: 400px;
+text-align:center;
+}
+
+.books_font{
+text-align: right;
+
+}
+
+
+
 h3{
 font-family: 'Amatic SC', cursive;
 }

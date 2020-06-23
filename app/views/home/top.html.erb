@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>漫画レビュー</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
+  </head>
+
+
+     <header class="navbar navbar-fixed-top">
+        <div class="container">
+
+            <nav>
+              <ul class="nav navbar-nav navbar-right">
+                <!--if文でサインインとアウト時の表示を変更-->
+                <li><%= link_to ' home',home_top_path %></li>
+                <li><%= link_to ' about',home_about_path  %></li>
+                <li><%= link_to ' manngas',root_path  %></li>
+                <li><%= link_to ' sign_up', new_user_session_path%></li>
+              </ul>
+            </nav>
+         </div>
+    </header>
+
+
+    <body>
+        <div class="book_image"style="background-size: cover; background-position: center;">
+            <div class="welcom-text">
+                <h8>welcome
+                    <p>manngatebyu</p>
+                </h8>
+            </div>
+        </div>
+
+         <div class="books_image"style="background-size: cover; background-position: center;">
+        </div>
+
+        <div class="books_font">
+                <h3>Manga rebyūde  <br>
+                    samazamana koto ga dekiru yo!<br>
+                    Rebyū o kai tari sukina manga ni ī ne o shite miyou!
+                </h3>
+        </div>
+
+
+    </body>

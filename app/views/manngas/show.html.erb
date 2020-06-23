@@ -1,5 +1,6 @@
 <div class="container">
   <div class="row">
+
     <div class="col-xs-3">
       <h9 style="border-bottom: 1px solid silver; margin-bottom: 10px;">Genre</h9>
       <div class="row">
@@ -21,47 +22,40 @@
     </div>
 
     <div class="col-xs-9">
-
       <div class="font_z"> mannga </div>
       <div class="row">
       	<div class="col-xs-3">
-              <%= attachment_image_tag(@mannga, :image_url,id: "preview", size: '200x200', fallback: "no_image.jpg") %>
+          <%= attachment_image_tag(@mannga, :image_url,id: "preview", size: '200x200', fallback: "no_image.jpg") %>
         </div>
 
-        <div class="col-xs-6">
-          <br>
-          <%= @mannga.name %>
-        </div>
-        <div class="col-xs-6">
-          <br>
-        	<%= render_with_hashtags(@mannga.description) %>
-        </div>
-        <div class="col-xs-6">
-          <br>
-          <%= @mannga.genre.name %>
-        </div>
 
+
+      <div class="row">
         <div class="col-xs-6">
-          <br>
-          <% if @mannga.favorited_by?(current_user) %>
-              <%= link_to mannga_favorites_path(@mannga), method: :delete do %>
-              <i class="glyphicon glyphicon-heart"style="color: red;"></i>
-              <%= @mannga.favorites.count %>
-              <% end %>
-              </li>
-              <% else %>
-                <%= link_to mannga_favorites_path(@mannga), method: :post do %>
-              <i class="glyphicon glyphicon-heart"></i>
-               <%= @mannga.favorites.count %>
-              <% end %>
-          <% end %>
-          <%= link_to "レビューを書く", new_mannga_post_path(@mannga) %>
+          <div class="manga">
+            <h3>name</h3>
+            <%= @mannga.name %>
+            <h3>description</h3>
+            <%= render_with_hashtags(@mannga.description) %>
+            <h3>genre</h3>
+            <%= @mannga.genre.name %>
+            <% if @mannga.favorited_by?(current_user) %>
+                <%= link_to mannga_favorites_path(@mannga), method: :delete do %>
+                <i class="glyphicon glyphicon-heart"style="color: red;"></i>
+                <%= @mannga.favorites.count %>
+                <% end %>
+                </li>
+                <% else %>
+                  <%= link_to mannga_favorites_path(@mannga), method: :post do %>
+                <i class="glyphicon glyphicon-heart"></i>
+                 <%= @mannga.favorites.count %>
+                <% end %>
+            <% end %>
+            <%= link_to "レビューを書く", new_mannga_post_path(@mannga) %>
+          </div>
         </div>
       </div>
 
-      <% if @post == 0 %>
-      <h3>レビューがありません</h3>
-      <% end %>
 
 
       <div class="row">
@@ -114,6 +108,8 @@
           </tbody>
         </table>
       </div>
+      </div>
+   </div>
     </div>
   </div>
 </div>

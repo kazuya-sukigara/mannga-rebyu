@@ -5,9 +5,9 @@
     	<table class="table">
 			<thead>
 				<tr>
+					<th><h3>mannga_image</h3></th>
 					<th><h3>mannga_title</h3></th>
 					<th><h3>mannga_author</h3></th>
-					<th></th>
 					<th></th>
 					<th></th>
 					<th colspan="3"></th>
@@ -18,9 +18,9 @@
 				<% @favorite_manngas.each do |mannga| %>
 				<tr>
 
-					<td><%= mannga.name %></td>
+					<td><%= attachment_image_tag(@mannga, :image_url,id: "preview", size: '100x100', fallback: "no_image.jpg") %></td>
+					<td><%= mannga.name%></td>
 					<td><%= mannga.author%></td>
-					<td></td>
 					<td></td>
 					<td></td>
 				</tr>

@@ -28,10 +28,14 @@ class PostsController < ApplicationController
 	end
 
 	def update
-		post = Post.find(params[:id])
-	    post.update
-	    redirect_to request.referer
-
+		@mannga = Mannga.find(params[:mannga_id])
+		@post = Post.find(params[:id])
+	   if @post.update(post_params)
+	    redirect_to mannga_path(@mannga)
+	   else
+	   	flash[:error_messages] = @post.errors.full_messages
+        render 'new'
+       end
 	end
 
 	private

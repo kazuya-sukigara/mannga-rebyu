@@ -1,28 +1,31 @@
+<div class="container">
+    <div class="row">
+
+      <div class="font_z">search<i class="glyphicon glyphicon-search"style="color: blue;"></i></div>
 
 
 
+        <table>
+            <% @users.each do |user| %>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th><%= user.nick_name %></th>
+                </tr>
+            </thead>
+            <% end %>
+        </table>
 
 
-    <h1>検索結果</h1>
-    <table>
-        <% @users.each do |user| %>
-        <thead>
-            <tr>
-                <th></th>
-                <th><%= user.nick_name %> </th>
-            </tr>
-        </thead>
+        <table>
+        <% @manngas.each do |mannga| %>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th><%= mannga.name %></th>
+                </tr>
+            </thead>
         <% end %>
-    </table>
-
-
-    <table>
-    <% @manngas.each do |mannga| %>
-        <thead>
-            <tr>
-                <th></th>
-                <th><%= mannga.name %></th>
-            </tr>
-        </thead>
-    <% end %>
-    </table>
+        </table>
+    </div>
+</div>
