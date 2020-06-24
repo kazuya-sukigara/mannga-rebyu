@@ -23,7 +23,7 @@ $(function(){
     var parentGenre = document.getElementById('parent_genre').value; //選択された親カテゴリーの名前を取得
     if (parentGenre != "---"){ //親カテゴリーが初期値でないことを確認
       $.ajax({
-        url: 'genre_children',
+        url: '/admin/manngas/genre_children',
         type: 'GET',
         data: { parent_name: parentGenre },
         dataType: 'json'

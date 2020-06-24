@@ -4,45 +4,6 @@
 
 <div class="row">
   <div class="item-form">
-    <%= form_for([:admin, @mannga]) do |f| %>
-
-      <div class="col-xs-5">
-        <div class="field">
-          <%= attachment_image_tag(@mannga, :image,id: "prev", size: '400x300', fallback: "no_image.jpg") %>
-          <%= f.attachment_field :image, id: :mannga_image %>
-        </div>
-      </div>
-
-      <div class="col-xs-6">
-        <div class="field">
-          <%= f.label :name, "漫画名", style: "width: 110px;" %>
-          <%= f.text_field :name, class: "form-control", style: "width: 300px;" %>
-        </div>
-
-        <div class="field label-top">
-          <%= f.label :description, "漫画説明", style: "width: 110px;" %>
-          <%= f.text_area :description, class: "form-control", rows: 7, style: "width: 300px;" %>
-        </div>
-
-          <div class="listing-form-box">
-        <div class="listing-product-detail__category">
-          <%= f.label 'ジャンル', class: 'listing-default__label' %>
-          <span class="listing-default--require"></span>
-          <div class="listing-select-wrapper">
-            <div class="listing-select-wrapper__box">
-              <%= f.select :genre_id, options_for_select(@genre_parent_array.map { |genre| [genre[:name], genre[:id]] }), {}, {class: 'listing-select-wrapper__box--select', id: 'parent_genre'} %>
-              <i class="fas fa-chevron-down listing-select-wrapper__box--arrow-down"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-        <div class="actions text-right">
-          <%= f.submit "変更を保存", class: "btn-lg btn-primary" %>
-        </div>
-      </div>
-
-    <% end %>
+     <%= render 'admin/manngas/form', mannga: @mannga %>
   </div>
 </div>

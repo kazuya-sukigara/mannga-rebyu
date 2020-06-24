@@ -27,7 +27,7 @@
 			    	<div class="col-xs-3">
 			    		<div class="row">
 			    			<div class="col-xs-12">
-			                  <%= attachment_image_tag(@mannga, :image_url,id: "preview", size: '100x100', fallback: "no_image.jpg") %>
+			                  <%= attachment_image_tag mannga, :image, id: "preview", size: '150x150', fallback: "no_image.jpg" %>
 			                </div>
 			            </div>
 
@@ -43,12 +43,12 @@
 			    		</div>
 			    		  <div class="row">
 			    			<div class="col-xs-12">
-			    				
 			    			</div>
 			    		</div>
 			    	</div>
 			    <% end %>
 		    </div>
+		    <%= paginate @manngas %>
 		</div>
 	</div>
 </div>

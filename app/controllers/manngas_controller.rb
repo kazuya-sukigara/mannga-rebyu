@@ -1,6 +1,6 @@
 class ManngasController < ApplicationController
 	def index
-  	  @manngas = Mannga.all #一覧表示するためにManngaモデルの情報を全てくださいのall
+  	  @manngas = Mannga.page(params[:page]).reverse_order #一覧表示するためにManngaモデルの情報を全てくださいのall
   	  @parents = Genre.where(ancestry: nil)
     end
 

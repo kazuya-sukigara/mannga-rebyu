@@ -25,7 +25,7 @@
       <div class="font_z"> mannga </div>
       <div class="row">
       	<div class="col-xs-3">
-          <%= attachment_image_tag(@mannga, :image_url,id: "preview", size: '200x200', fallback: "no_image.jpg") %>
+          <%= attachment_image_tag @mannga, :image, id: "preview", size: '200x200', fallback: "no_image.jpg" %>
         </div>
 
 
@@ -53,6 +53,7 @@
             <%= render_with_hashtags(@mannga.description) %>
             <h3>genre</h3>
             <%= @mannga.genre.name %>
+　　　　　　　<% if user_signed_in? %>
             <% if @mannga.favorited_by?(current_user) %>
                 <%= link_to mannga_favorites_path(@mannga), method: :delete do %>
                 <i class="glyphicon glyphicon-heart"style="color: red;"></i>
@@ -64,8 +65,10 @@
                 <i class="glyphicon glyphicon-heart"></i>
                  <%= @mannga.favorites.count %>
                 <% end %>
+                <%= link_to "レビューを書く", new_mannga_post_path(@mannga) %>
             <% end %>
-            <%= link_to "レビューを書く", new_mannga_post_path(@mannga) %>
+            <% end %>
+
           </div>
         </div>
       </div>

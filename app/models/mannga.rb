@@ -1,7 +1,7 @@
 class Mannga < ApplicationRecord
 	attachment :image
   belongs_to :genre
-  has_many :hashtags
+  has_many :micropost_hashtags, dependent: :destroy
 	has_many :posts
   has_many :bookmarks, dependent: :destroy
 	has_many :favorites, dependent: :destroy
@@ -14,7 +14,7 @@ class Mannga < ApplicationRecord
       bookmarks.where(user_id: user.id).exists?
     end
 
-    
+
     #DBへのコミット直前に実施する
   after_create do
     mannga = Mannga.find_by(id: self.id)
@@ -27,8 +27,7 @@ class Mannga < ApplicationRecord
   end
 
   before_update do
-    mannga = Mannga.find_by(id: self.id)
-    mannga.hashtags.clear
+    MicropostHashtags.where(mannga_id: self.id).destroy_all
     hashtags = self.description.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
     hashtags.uniq.map do |hashtag|
       tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#'))
