@@ -21,8 +21,6 @@
       </div>
     </div>
 
-   
-
     <div class="navbar navbar-default" role="navigation">
 
        <div class="navbar-header">
@@ -58,22 +56,18 @@
         </div>
       </div>
     </div>
-     <div style="margin-top: 50px; margin-bottom: 30px; text-align: center;　"><%= form_tag(searchs_search_path, :method => 'get') do %>
-         <%= text_field_tag :search %>
+
+    <div style="margin-top: 50px; margin-bottom: 30px; text-align: center;　"><%= form_tag(searchs_search_path, :method => 'get') do %>
+        <%= text_field_tag :search %>
         <span class="font_s">
           <span class="h3">
-         <%= submit_tag 'Search' %>
-       </span>
-
-     </span>
-         <% end %>
-      </div>
-
+           <%= submit_tag 'Search' %>
+          </span>
+        </span>
+      <% end %>
+    </div>
 
     <%= yield %>
-
-   
-
 
     <footer>
       <div class="footer-top"></div>

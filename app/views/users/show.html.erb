@@ -1,6 +1,8 @@
 <div class="container">
 	<div class="row">
-	　<div class="font_z">user_porofil</div>
+		<div class="font_z">
+		    user_porofil
+		</div>
 	</div>
 
 	<div class="row">
@@ -51,24 +53,24 @@
             <div class="font_z">rebyu</div>
 		    <div class="row">
 		    	<div class="box13">
-				<% @posts.each do |post| %>
-				<%= post.mannga.name %>
-				<%= post.title %>
-				<%= post.body %>
-				 <div id="star-rate-<%= post.id %>"></div>
-                <script>
-                $('#star-rate-<%= post.id %>').raty({
-                  size: 36,
-                  starOff:  '<%= asset_path('star-off.png') %>',
-                  starOn : '<%= asset_path('star-on.png') %>',
-                  starHalf: '<%= asset_path('star-half.png') %>',
-                  half: true,
-                  readOnly: true,
-                  score: <%= post.rate %>,
-                  });
-                </script>
-				<% end %>
-			</div>
+					<% @posts.each do |post| %>
+					<%= post.mannga.name %>
+					<%= post.title %>
+					<%= post.body %>
+					 <div id="star-rate-<%= post.id %>"></div>
+	                <script>
+	                $('#star-rate-<%= post.id %>').raty({
+	                  size: 36,
+	                  starOff:  '<%= asset_path('star-off.png') %>',
+	                  starOn : '<%= asset_path('star-on.png') %>',
+	                  starHalf: '<%= asset_path('star-half.png') %>',
+	                  half: true,
+	                  readOnly: true,
+	                  score: <%= post.rate %>,
+	                  });
+	                </script>
+					<% end %>
+			    </div>
 			</div>
 		</div>
 	</div>
