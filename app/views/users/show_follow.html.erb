@@ -3,13 +3,13 @@
 	<div class="col-xs-8 col-xs-offset-2">
 
 
-　<h2>フォロー一覧</h2>
+　<h3>Follow Users</h3>
 
 <table class="table">
 	<thead>
 		<tr>
-			<th>image</th>
-			<th>name</th>
+			<th>nick_name</th>
+			<th></th>
 			<th></th>
 			<th></th>
 			<th></th>
@@ -28,7 +28,7 @@
   <% if current_user.following?(user) %>
     <%= form_for(current_user.relationships.find_by(follow_id: user.id), html: { method: :delete }) do |f| %>
       <%= f.hidden_field :follow_id, value: user.id %>
-      <%= f.submit 'フォロー外す'%>
+      <%= f.submit 'フォロー外す',class: 'btn btn-danger btn-block'%>
     <% end %>
   <% else %>
     <%= form_for(current_user.relationships.build) do |f| %>

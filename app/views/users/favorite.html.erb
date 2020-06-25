@@ -19,7 +19,10 @@
 				<tr>
 
 					<td><%= attachment_image_tag(@mannga, :image_url,id: "preview", size: '100x100', fallback: "no_image.jpg") %></td>
-					<td><%= mannga.name%></td>
+					<td><%= link_to mannga_path(mannga) do %>
+						<%= mannga.name%>
+							<% end %>
+						</td>
 					<td><%= mannga.author%></td>
 					<td></td>
 					<td></td>

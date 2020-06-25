@@ -65,9 +65,12 @@
                 <i class="glyphicon glyphicon-heart"></i>
                  <%= @mannga.favorites.count %>
                 <% end %>
-                <%= link_to "レビューを書く", new_mannga_post_path(@mannga) %>
+               
             <% end %>
             <% end %>
+            <% if user_signed_in? %>
+             <%= link_to "レビューを書く", new_mannga_post_path(@mannga) %>
+             <% end %>
 
           </div>
         </div>
