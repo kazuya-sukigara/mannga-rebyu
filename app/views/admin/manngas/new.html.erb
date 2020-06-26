@@ -1,13 +1,13 @@
 <div class="container">
-  <div class="row">
-  <%= render 'admin/manngas/form', mannga: @mannga %>
-    <% if @mannga.errors.any? %>
-  <h3><%= @mannga.errors.count %>error occurrence</h3><!--エラーメッセ-->
-  <ul>
-    <% @mannga.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+    <div class="row">
+	    <%= render 'admin/manngas/form', mannga: @mannga %>
+	    <% if @mannga.errors.any? %>
+	     <h3><%= @mannga.errors.count %>error occurrence</h3>
+	        <ul>
+	            <% @mannga.errors.full_messages.each do |message| %>
+	             <li><%= message %></li>
+	            <% end %>
+	        </ul>
+	    <% end %>
+	</div>
 </div>
-<

@@ -1,7 +1,7 @@
 class GenresController < ApplicationController
 	def show
 		@genre = Genre.find(params[:id])
-		 @parents = Genre.where(ancestry: nil)
+		@parents = Genre.where(ancestry: nil)
 
 		if @genre.ancestry == nil #@genreがancestry.nilがチェックする
 		   @children = Genre.where(ancestry: @genre.id)#nillの場合@genre.idをancestryに持つgenreをとる

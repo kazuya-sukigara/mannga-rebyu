@@ -93,38 +93,39 @@
 
             <% @posts.each do |post| %>
               <tbody>
-              　<tr>
-                  <td>
-                  <%= link_to user_path(post.user.id) do %>
-                  <%= post.user.last_name%>
-                  <% end %>
-                  </td>
-                  <td>
-                  </td>
-                  <td>
-                  <div id="star-rate-<%= post.id %>"></div>
-                  <script>
-                  $('#star-rate-<%= post.id %>').raty({
-                    size: 36,
-                    starOff:  '<%= asset_path('star-off.png') %>',
-                    starOn : '<%= asset_path('star-on.png') %>',
-                    starHalf: '<%= asset_path('star-half.png') %>',
-                    half: true,
-                    readOnly: true,
-                    score: <%= post.rate %>,
-                    });
-                  </script>
-                  </td>
-                  <td><%= post.title %></td>
-                  <td><%= post.body %></td>
-                  <td> <% if current_user == post.user %>
-                    <%= link_to '口コミを編集',edit_mannga_post_path(mannga_id: @mannga, id: post), method: :get, class:'btn btn-warning' %></td>
-                    <td><%= link_to '口コミを削除',mannga_post_path(mannga_id: @mannga, id: post) , method: :delete, class:'btn btn-warning' %>
-                  <% end %></td>
-                </tr>
-              </tbody>
-            <% end %>
-          </table>
+              　  <tr>
+                    <td>
+                    <%= link_to user_path(post.user.id) do %>
+                    <%= post.user.last_name%>
+                    <% end %>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    <div id="star-rate-<%= post.id %>"></div>
+                    <script>
+                    $('#star-rate-<%= post.id %>').raty({
+                      size: 36,
+                      starOff:  '<%= asset_path('star-off.png') %>',
+                      starOn : '<%= asset_path('star-on.png') %>',
+                      starHalf: '<%= asset_path('star-half.png') %>',
+                      half: true,
+                      readOnly: true,
+                      score: <%= post.rate %>,
+                      });
+                    </script>
+                    </td>
+                    <td><%= post.title %></td>
+                    <td><%= post.body %></td>
+                    <td> <% if current_user == post.user %>
+                      <%= link_to '口コミを編集',edit_mannga_post_path(mannga_id: @mannga, id: post), method: :get, class:'btn btn-warning' %></td>
+                      <td><%= link_to '口コミを削除',mannga_post_path(mannga_id: @mannga, id: post) , method: :delete, class:'btn btn-warning' %>
+                    <% end %></td>
+                  </tr>
+                </tbody>
+              <% end %>
+            </table>
+          </div>
         </div>
       </div>
     </div>

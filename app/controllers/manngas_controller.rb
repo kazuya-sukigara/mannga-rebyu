@@ -1,5 +1,6 @@
 class ManngasController < ApplicationController
-	def index
+
+	  def index
   	  @manngas = Mannga.page(params[:page]).reverse_order #一覧表示するためにManngaモデルの情報を全てくださいのall
   	  @parents = Genre.where(ancestry: nil)
     end
@@ -9,8 +10,8 @@ class ManngasController < ApplicationController
       @posts = @mannga.posts #その漫画に紐づくレビュー
       @parents = Genre.where(ancestry: nil)
       @average_mannga_post = Post.group(:mannga_id).average(:rate)
-
     end
+
     def hashtag
 	    @user = current_user
       @parents = Genre.where(ancestry: nil)

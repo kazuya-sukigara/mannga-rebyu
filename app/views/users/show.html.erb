@@ -40,7 +40,9 @@
 				</tr>
 				</table>
 			</table>
-			<%= render 'relationships/follow_button', user: @user, relotionship: @relationship %>
+			<% if user_signed_in? %>
+			  <%= render 'relationships/follow_button', user: @user, relotionship: @relationship %>
+			<% end %>
 			<% if current_user == @user %>
 			<%= link_to "編集する", edit_user_path, class: "btn btn-warning" %>
 			<%= link_to "パスワードを変更する", edit_user_registration_path, class: "btn btn-warning" %>
@@ -54,9 +56,18 @@
 		    <div class="row">
 		    	<div class="box13">
 					<% @posts.each do |post| %>
-					<%= post.mannga.name %>
-					<%= post.title %>
-					<%= post.body %>
+					<div class="col-xs-12">
+					  <h3>name</h3>
+					  <%= post.mannga.name %>
+				    </div>
+				    <div class="col-xs-12">
+				    	 <h3>title</h3>
+					  <%= post.title %>
+					</div>
+					<div class="col-xs-12">
+						 <h3>body</h3>
+					  <%= post.body %>
+					</div>
 					 <div id="star-rate-<%= post.id %>"></div>
 	                <script>
 	                $('#star-rate-<%= post.id %>').raty({

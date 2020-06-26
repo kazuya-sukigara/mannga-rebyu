@@ -14,7 +14,4 @@ class SearchController < ApplicationController
     		User.where(['first_name LIKE ? OR nick_name LIKE ? OR last_name LIKE ?',"%#{search}%","%#{search}%","%#{search}%"])
     	end
     end
-
-
-
 end
