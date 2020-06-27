@@ -34,6 +34,4 @@ class Mannga < ApplicationRecord
       MicropostHashtags.create(mannga_id: self.id, hashtag_id: tag.id)
     end
   end
-
-
 end

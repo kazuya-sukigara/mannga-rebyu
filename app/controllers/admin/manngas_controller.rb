@@ -1,5 +1,7 @@
 class Admin::ManngasController < ApplicationController
 	before_action :set_genre_parent, only: [:new, :create, :edit, :update]
+	before_action :authenticate_admin!
+
 
 	def new
 		@mannga = Mannga.new
