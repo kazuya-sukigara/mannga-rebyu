@@ -3,24 +3,32 @@
 
        <div class="font_z">search<i class="glyphicon glyphicon-search"style="color: blue;"></i></div>
 
+        <h3>user</h3>
         <table>
             <% @users.each do |user| %>
             <thead>
                 <tr>
                     <th></th>
-                    <th><%= user.nick_name %></th>
+                    <th> <%= link_to user_path(user) do %>
+                        <%= user.nick_name %>
+                        <% end %>
+                    </th>
                 </tr>
             </thead>
             <% end %>
         </table>
 
-
+        <h3>mannga</h3>
         <table>
         <% @manngas.each do |mannga| %>
             <thead>
                 <tr>
                     <th></th>
-                    <th><%= mannga.name %></th>
+                    <th>
+                        <%= link_to mannga_path(mannga) do %>
+                        <%= mannga.name %>
+                        <% end %>
+                    </th>
                 </tr>
             </thead>
         <% end %>

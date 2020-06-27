@@ -71,18 +71,19 @@
 								<td> <%= post.title %></td>
 								<td><%= post.body %></td>
 								<td><div id="star-rate-<%= post.id %>"></div>
-		                <script>
-		                $('#star-rate-<%= post.id %>').raty({
-		                  size: 36,
-		                  starOff:  '<%= asset_path('star-off.png') %>',
-		                  starOn : '<%= asset_path('star-on.png') %>',
-		                  starHalf: '<%= asset_path('star-half.png') %>',
-		                  half: true,
-		                  readOnly: true,
-		                  score: <%= post.rate %>,
-		                  });
-		                </script>
-							<% end %></td>
+				                <script>
+				                $('#star-rate-<%= post.id %>').raty({
+				                  size: 36,
+				                  starOff:  '<%= asset_path('star-off.png') %>',
+				                  starOn : '<%= asset_path('star-on.png') %>',
+				                  starHalf: '<%= asset_path('star-half.png') %>',
+				                  half: true,
+				                  readOnly: true,
+				                  score: <%= post.rate %>,
+				                  });
+				                </script>
+									<% end %></td>
+								<td>
 							</tr>
 					</tbody>
 				</table>
