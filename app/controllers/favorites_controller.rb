@@ -4,14 +4,14 @@ class FavoritesController < ApplicationController
 		mannga = Mannga.find(params[:mannga_id])
         favorite = current_user.favorites.new(mannga_id: mannga.id)
         favorite.save
-        redirect_to request.referer
+        redirect_to request.referer, notice: "いいねしました！"
     end
 
     def destroy
     	mannga = Mannga.find(params[:mannga_id])
         favorite = current_user.favorites.find_by(mannga_id: mannga.id)
         favorite.destroy
-        redirect_to request.referer
+        redirect_to request.referer, notice: "いいねを外しました！"
     end
 
     private

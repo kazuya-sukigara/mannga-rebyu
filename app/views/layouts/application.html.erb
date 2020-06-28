@@ -57,6 +57,13 @@
       </div>
     </div>
 
+    <p class="notice"style="text-align: center;"><%= notice %></p>
+    <% if flash[:success] %>
+      <div class="flash"style="text-align: center;">
+        <%= flash[:success] %>
+      </div>
+    <% end %>
+
     <div style="margin-top: 50px; margin-bottom: 30px; text-align: center;　"><%= form_tag(searchs_search_path, :method => 'get') do %>
         <%= text_field_tag :search %>
         <span class="font_s">

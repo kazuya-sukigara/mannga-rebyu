@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 	    @post = current_user.posts.new(post_params)
 	    @post.mannga_id = @mannga.id
 	   if @post.save
-	    redirect_to mannga_path(@mannga)
+	    redirect_to mannga_path(@mannga), notice: "レビューの投稿が完了しました！"
 	   else
 
 	   	flash[:error_messages] = @post.errors.full_messages
@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 		@mannga = Mannga.find(params[:mannga_id])
 		@post = Post.find(params[:id])
 	    if @post.update(post_params)
-	    redirect_to mannga_path(@mannga)
+	    redirect_to mannga_path(@mannga), notice: "レビューの編集が完了しました！"
 	    else
 	   	flash[:error_messages] = @post.errors.full_messages
         render 'new'
