@@ -21,4 +21,22 @@ mannga_rebyu
 
 ### 機能一覧
 <https://docs.google.com/spreadsheets/d/15sPdUn3uPSz2-iCweydf9yaStoJV7lz7PRudbNQDqDM/edit#gid=0>
+# 管理者側
+- 漫画登録
+- タグつけ登録
+- 漫画編集
+- 問合せ一覧
+- 問合せ詳細
+
+# ユーザー側
+- 漫画に対してレビューを書ける（raty.jsを使用した評価）
+- ユーザーページ編集
+- フォローができる
+- いいねができる
+- いいねした一覧が見れる
+- SNS認証　gogle
+- 検索ができる(ユーザーと漫画)
+- ジャンル検索(親と子供どちらでも)
+- お問い合わせフォーム
+- pagination機能
 
